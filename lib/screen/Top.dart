@@ -3,10 +3,10 @@ import '../components/menu_drawer.dart';
 
 class TopPage extends StatefulWidget {
   @override
-  State<TopPage> createState() => _AnotherPageState();
+  State<TopPage> createState() => _TopPageState();
 }
 
-class _AnotherPageState extends State<TopPage> {
+class _TopPageState extends State<TopPage> {
   var _selectedCity = '';
 
   @override

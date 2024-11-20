@@ -1,4 +1,13 @@
 import 'package:flutter/material.dart';
+import '../screen/Top.dart';
+import '../screen/MyMap.dart';
+import '../screen/MyStock.dart';
+import '../screen/MyTimeLine.dart';
+import '../screen/User.dart';
+import '../screen/Group.dart';
+import '../screen/Announcement.dart';
+import '../screen/WhatIsMC.dart';
+import '../screen/Usage.dart';
 
 class MenuDrawer extends StatelessWidget {
   final Function(String) onCitySelected;
@@ -12,7 +21,7 @@ class MenuDrawer extends StatelessWidget {
         children: <Widget>[
           DrawerHeader(
             child: Text(
-              'My App',
+              '備える暮らし\n まちケアコモンズ',
               style: TextStyle(
                 fontSize: 24,
                 color: Colors.white,
@@ -23,38 +32,93 @@ class MenuDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            title: Text('Los Angeles'),
+            title: Text('ホーム'),
             onTap: () {
-              onCitySelected('Los Angeles, CA');
-              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => TopPage()), // MenuPage を利用
+              );
             },
           ),
           ListTile(
-            title: Text('Honolulu'),
+            title: Text('マイマップ'),
             onTap: () {
-              onCitySelected('Honolulu, HI');
-              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => MyMapPage()), // MenuPage を利用
+              );
             },
           ),
           ListTile(
-            title: Text('Dallas'),
+            title: Text('マイローリングストック'),
             onTap: () {
-              onCitySelected('Dallas, TX');
-              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => MyStockPage()), // MenuPage を利用
+              );
             },
           ),
           ListTile(
-            title: Text('Seattle'),
+            title: Text('マイタイムライン'),
             onTap: () {
-              onCitySelected('Seattle, WA');
-              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => MyTimeLinePage()), // MenuPage を利用
+              );
             },
           ),
           ListTile(
-            title: Text('Tokyo'),
+            title: Text('ユーザー'),
             onTap: () {
-              onCitySelected('Tokyo, Japan');
-              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => UserPage()), // MenuPage を利用
+              );
+            },
+          ),
+          ListTile(
+            title: Text('グループ'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => GroupPage()), // MenuPage を利用
+              );
+            },
+          ),
+          ListTile(
+            title: Text('お知らせ'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => AnnouncementPage()), // MenuPage を利用
+              );
+            },
+          ),
+          ListTile(
+            title: Text('まちケア・コモンズとは'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => WhatIsMCPage()), // MenuPage を利用
+              );
+            },
+          ),
+          ListTile(
+            title: Text('ガイド'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => UsagePage()), // MenuPage を利用
+              );
             },
           ),
         ],
