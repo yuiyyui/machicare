@@ -9,7 +9,14 @@ class TopPage extends StatefulWidget {
 }
 
 class _TopPageState extends State<TopPage> {
-  var _selectedCity = '';
+  int _selectedIndex = 0; // 選択中のフッターメニューのインデックス
+
+  // フッターメニューで切り替える画面
+  final List<Widget> _pages = [
+    Center(child: Text('ホーム')),
+    Center(child: Text('お知らせ')),
+    Center(child: Text('マイページ')),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +26,7 @@ class _TopPageState extends State<TopPage> {
       ),
       drawer: MenuDrawer(
         onCitySelected: (city) {
-          setState(() {
-            _selectedCity = city;
-          });
+          setState(() {});
         },
       ),
       body: Stack(
@@ -52,8 +57,23 @@ class _TopPageState extends State<TopPage> {
               ),
             ],
           ),
-          // 選択された都市を表示するメニュー
+          // 選択中のページを表示
+          _pages[_selectedIndex], // フッターメニューで選ばれた画面を表示
         ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'ホーム'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.notifications), label: 'お知らせ'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'マイページ'),
+        ],
+        currentIndex: _selectedIndex,
+        onTap: (int index) {
+          setState(() {
+            _selectedIndex = index; // 選択したメニューのインデックスを更新
+          });
+        },
       ),
     );
   }
