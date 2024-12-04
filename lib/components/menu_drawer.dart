@@ -10,13 +10,12 @@ import '../screen/WhatIsMC.dart';
 import '../screen/Usage.dart';
 
 class MenuDrawer extends StatelessWidget {
-  final Function(String) onCitySelected;
-
-  const MenuDrawer({required this.onCitySelected, Key? key}) : super(key: key);
+  const MenuDrawer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      //サイドメニュー作成のウィジェット
       child: ListView(
         children: <Widget>[
           DrawerHeader(
